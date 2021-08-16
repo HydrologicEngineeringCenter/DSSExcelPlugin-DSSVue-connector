@@ -44,8 +44,8 @@ public class DSSExcel
         final DSSExcel plugin = new DSSExcel();
         final ListSelection listSelection = (ListSelection) args[0];
 
-        JMenuItem importMenuItem = new JMenuItem("Excel Import");
-        JMenuItem exportMenuItem = new JMenuItem("Excel Export");
+        JMenuItem importMenuItem = new JMenuItem("Excel Import (Beta)");
+        JMenuItem exportMenuItem = new JMenuItem("Excel Export (Beta)");
 
         importMenuItem.addActionListener(new ActionListener()
         {
