@@ -70,7 +70,7 @@ public class DSSExcel
         try
         {
             // Set new current working directory
-            String DSSExcelDir = oldDir + "\\dotnet\\DSSExcelImport_Release\\";
+            String DSSExcelDir = oldDir + "\\dotnet\\DSSExcelImport\\";
             System.setProperty("user.dir", DSSExcelDir);
 
             // Get Excel file
@@ -140,7 +140,7 @@ public class DSSExcel
             }
 
             // Set new current working directory
-            String DSSExcelDir = oldDir + "\\dotnet\\DSSExcelExport_Release\\";
+            String DSSExcelDir = oldDir + "\\dotnet\\DSSExcelExport\\";
             System.setProperty("user.dir", DSSExcelDir);
 
             // Get Excel file
