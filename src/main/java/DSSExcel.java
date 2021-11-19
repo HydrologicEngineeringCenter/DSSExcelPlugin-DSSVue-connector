@@ -47,18 +47,9 @@ public class DSSExcel
         JMenuItem importMenuItem = new JMenuItem("Excel Import (Beta)");
         JMenuItem exportMenuItem = new JMenuItem("Excel Export (Beta)");
 
-        importMenuItem.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e) { plugin.importFromExcel(listSelection); }
-        });
+        importMenuItem.addActionListener(e -> plugin.importFromExcel(listSelection));
 
-        exportMenuItem.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                plugin.exportToExcel(listSelection);
-            }
-        });
+        exportMenuItem.addActionListener(e -> plugin.exportToExcel(listSelection));
 
         listSelection.registerExportPlugin(exportMenuItem);
         listSelection.registerImportPlugin(null,importMenuItem,null);
@@ -85,9 +76,9 @@ public class DSSExcel
 
             // Create command line argument string for DSSExcel
             String executable = System.getProperty("user.dir") + "DSSExcelImport.exe";
-            String eOption = fileChooser.getSelectedFile().getAbsolutePath();
-            String dOption = listSelection.getDSSFilename();
-            String command = String.join(" ",executable, eOption, dOption);
+            String excelFileName = "\""+fileChooser.getSelectedFile().getAbsolutePath()+"\"";
+            String dssFileName = "\""+listSelection.getDSSFilename()+"\"";
+            String command = String.join(" ",executable, excelFileName, dssFileName);
 
             Runtime run  = Runtime.getRuntime();
             System.out.println(command);
@@ -112,7 +103,7 @@ public class DSSExcel
 
             // refresh DSS file in DSSVue
             listSelection.closeDssFile();
-            listSelection.openDSSFile(dOption);
+            listSelection.openDSSFile(dssFileName);
 
             // Display Import Status
             if (proc.exitValue() == 0)
